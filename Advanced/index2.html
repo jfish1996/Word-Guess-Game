@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="game">
+        Find out what the computer is thinking! Guess letters to discover the word!
+
+        <p>You choose: <span id="Youchoose">...Nothing.</span></p>
+
+        <p>Word: <span id="wordBox"> </span> </p>
+
+
+        <p>Wins: <span id="Wins">...Nothing yet</span></p>
+
+        <p>Losses: <span id="Losses">...Soon</span></p>
+
+        <p>Letters Tried: <span id="Letters"></span></p>
+        
+
+
+    </div>
+
+    <script>
+        var wordOptions = ["dog", "hippo", "lion", "wolf", "moose"];
+
+        var winsInt = 0;
+
+        var loseInt = 0;
+
+        //creating a variable to target the html of user choice
+        var userChoiceEL = document.getElementById("Youchoose");
+
+
+        //creating a variable to target the html of wins
+        var WinsEL = document.getElementById("Wins");
+
+        //creating a variable to target the html of losses
+        var LossesEL = document.getElementById("Losses");
+
+        //creating a variable to target the html of letters tried
+        var lettersEL = document.getElementById("Letters");
+
+        //my empty letters array
+        var lettersArray = [];
+
+        var computerChoice = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+        console.log(computerChoice);
+        var wordBox = document.getElementById("wordBox");
+
+
+//for the length of commputer choice, add an underscore to the HTML id WordBox
+            for (let index = 0; index < computerChoice.length; index++) {
+               wordBox.textContent +="_ ";
+                
+            }
+
+
+
+        //declaring that once a key has been pressed a function begins
+        document.onkeyup = function (event) {
+            //within that function we have created a variable that grabs what key the usr has pressed
+            var userGuess = event.key.toLowerCase(); //Thats this code here
+
+
+            
+            if(userGuess === computerChoice[i]){
+                for(var j= 0; j < computerChoice.length; j++){
+                    if(userGuess ===computerChoice[i]) {
+                        
+                    }
+                }
+
+            }
+
+
+
+            //this pushes any of the users guess to the empty letters array
+            lettersArray.push(userGuess);
+
+            //this is a console.log to make sure those letters are indeed going into the array
+            console.log(lettersArray);
+
+            //this is to change my Html element that appear on the screen to be equal to my letters array in string form
+            lettersEL.textContent = lettersArray.toString();
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
